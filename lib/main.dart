@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:gemini_demo/routes/app_routes.dart';
+import 'package:flutter_experiments/routes/app_routes.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: 'keys.env');

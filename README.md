@@ -1,4 +1,4 @@
-# gemini_demo
+# flutter_experiments
 
 A new Flutter project.
 

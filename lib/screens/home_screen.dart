@@ -1,23 +1,29 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_demo/routes/app_routes.dart';
+import 'package:flutter_experiments/const_data.dart';
+import 'package:flutter_experiments/routes/app_routes.dart';
 
 final List<Map<String, dynamic>> pages = [
   {
-    'route': AppRoutes.reorderableGridScreen,
-    'title': 'Reorderable Grid',
-    'color': Colors.red
+    StaticKeys.routeKey: AppRoutes.reorderableGridScreen,
+    StaticKeys.titleKey: 'Reorderable Grid',
+    StaticKeys.colorKey: Colors.red
   },
   {
-    'route': AppRoutes.writeSomethingScreen,
-    'title': 'Write Something',
-    'color': Colors.pink
+    StaticKeys.routeKey: AppRoutes.writeSomethingScreen,
+    StaticKeys.titleKey: 'Write Something',
+    StaticKeys.colorKey: Colors.pink
   },
   {
-    'route': AppRoutes.chatScreen,
-    'title': 'Chat with Gemini',
-    'color': Colors.indigo
+    StaticKeys.routeKey: AppRoutes.chatScreen,
+    StaticKeys.titleKey: 'Chat with Gemini',
+    StaticKeys.colorKey: Colors.indigo
+  },
+  {
+    StaticKeys.routeKey: AppRoutes.parallaxScrolkScreen,
+    StaticKeys.titleKey: 'Parallax scroll effect',
+    StaticKeys.colorKey: Colors.blueGrey
   },
 ];
 
@@ -57,12 +63,12 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: (configs['color'] as Color).withAlpha(180),
+            color: (configs[StaticKeys.colorKey] as Color).withAlpha(180),
           ),
           child: Column(
             children: [
               Text(
-                configs['title'],
+                configs[StaticKeys.titleKey],
                 style: const TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 22,
@@ -79,7 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.white,
                   ),
                   onTap: () {
-                    Navigator.of(context).pushNamed(configs['route']);
+                    Navigator.of(context)
+                        .pushNamed(configs[StaticKeys.routeKey]);
                   },
                 ),
               ),
